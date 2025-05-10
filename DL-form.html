@@ -127,4 +127,167 @@
                     <option value="HAZ">HAZ-hazel</option>
                     <option value="BLU">BLU-blue</option>
                     <option value="BLK">BLK-black</option>
-                    <option value="GR
+                    <option value="GRY">GRY-gray</option>
+                    <option value="SDY">SDY-sandy</option>
+                    <option value="MUL">MUL-multicolor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hairColor" class="required">Hair Color</label>
+                <select id="hairColor" name="hairColor" required>
+                    <option value="" disabled selected>--- Please Select ---</option>
+                    <option value="BLK">BLK-black</option>
+                    <option value="BRN">BRN-brown</option>
+                    <option value="RED">RED-red</option>
+                    <option value="BAL">BAL-bald</option>
+                    <option value="BLN">BLN-blonde</option>
+                    <option value="GRY">GRY-gray</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="birthday" class="required">Birthday</label>
+                <input type="text" id="birthday" name="birthday" placeholder="mm/dd/yyyy" required>
+            </div>
+
+            <div class="form-group">
+                <label for="height" class="required">Height</label>
+                <select id="height" name="height" required>
+                    <option value="" disabled selected>--- Please Select ---</option>
+                    <option value="5-00">5-00</option>
+                    <option value="5-01">5-01</option>
+                    <option value="5-02">5-02</option>
+                    <option value="5-03">5-03</option>
+                    <option value="5-04">5-04</option>
+                    <option value="5-05">5-05</option>
+                    <option value="5-06">5-06</option>
+                    <option value="5-07">5-07</option>
+                    <option value="5-08">5-08</option>
+                    <option value="5-09">5-09</option>
+                    <option value="5-10">5-10</option>
+                    <option value="5-11">5-11</option>
+                    <option value="6-00">6-00</option>
+                    <option value="6-01">6-01</option>
+                    <option value="6-02">6-02</option>
+                    <option value="6-03">6-03</option>
+                    <option value="6-04">6-04</option>
+                    <option value="6-05">6-05</option>
+                    <option value="6-06">6-06</option>
+                    <option value="6-07">6-07</option>
+                    <option value="6-08">6-08</option>
+                    <option value="6-09">6-09</option>
+                    <option value="6-10">6-10</option>
+                    <option value="6-11">6-11</option>
+                    <option value="7-00">7-00</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="weight" class="required">Weight (lbs)</label>
+                <input type="number" id="weight" name="weight" required>
+            </div>
+
+            <div class="form-group">
+                <label for="restrictions">Restrictions(Corrective Lenses)</label>
+                <select id="restrictions" name="restrictions">
+                    <option value="" disabled selected>--- Please Select ---</option>
+                    <option value="NO">NO</option>
+                    <option value="YES">YES</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="organDonor">Organ Donor</label>
+                <select id="organDonor" name="organDonor">
+                    <option value="" disabled selected>--- Please Select ---</option>
+                    <option value="NO">NO</option>
+                    <option value="YES">YES</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="duplicateQty">Duplicate Qty</label>
+                <select id="duplicateQty" name="duplicateQty">
+                    <option value="" disabled selected>--- Please Select ---</option>
+                    <option value="1">1 - $0</option>
+                    <option value="2">2 - $40</option>
+                    <option value="3">3 - $60</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="imageLink" class="required">Image Link (Please use Imager)</label>
+                <input type="text" id="imageLink" name="imageLink" placeholder="https://rentry.co/[your-image-link]" required>
+                <p>Please visit <a href="https://rentry.co/[placeholder-link]" target="_blank">https://rentry.co/[placeholder-link]</a> for instructions on how to take a good ID photo.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="secondaryId">Secondary ID (Optional, $110 additional fee)</label>
+                <select id="secondaryId" name="secondaryId">
+                    <option value="NO">NO</option>
+                    <option value="YES">YES</option>
+                </select>
+                <p>If you choose YES, please upload a link to a photo of yourself wearing a different hairstyle or shirt from your DL photo.</p>
+            </div>
+
+            <button type="submit">Submit Form</button>
+        </form>
+
+        <p id="successMessage" class="success-message">Your information has been sent successfully!</p>
+        <p id="errorMessage" class="error-message">Please use your email client to send the information.</p>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const email = document.getElementById('email').value;
+            const gender = document.getElementById('gender').value;
+            const eyeColor = document.getElementById('eyeColor').value;
+            const hairColor = document.getElementById('hairColor').value;
+            const birthday = document.getElementById('birthday').value;
+            const height = document.getElementById('height').value;
+            const weight = document.getElementById('weight').value;
+            const restrictions = document.getElementById('restrictions').value;
+            const organDonor = document.getElementById('organDonor').value;
+            const duplicateQty = document.getElementById('duplicateQty').value;
+            const imageLink = document.getElementById('imageLink').value;
+            const secondaryId = document.getElementById('secondaryId').value;
+
+            const recipientEmail = "cnc6@sudomail.com";
+
+            // Create mailto link with form data
+            const mailtoLink = `mailto:${recipientEmail}?subject=Personal Information Form Submission&body=${encodeURIComponent(
+                `Contact Info: ${email}
+Gender: ${gender}
+Eye Color: ${eyeColor}
+Hair Color: ${hairColor}
+Birthday: ${birthday}
+Height: ${height}
+Weight: ${weight} lbs
+Restrictions: ${restrictions || 'Not specified'}
+Organ Donor: ${organDonor || 'Not specified'}
+Duplicate Qty: ${duplicateQty || 'Not specified'}
+Image Link: ${imageLink}
+Secondary ID: ${secondaryId}
+`
+            )}`;
+
+            // Open email client
+            const emailWindow = window.open(mailtoLink, '_blank');
+
+            // Check if email client opened
+            if (emailWindow) {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+                this.reset();
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
