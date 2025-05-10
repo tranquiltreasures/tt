@@ -217,9 +217,9 @@
             </div>
 
             <div class="form-group">
-                <label for="imageLink" class="required">Image Link (Please use Imager)</label>
-                <input type="text" id="imageLink" name="imageLink" placeholder="https://rentry.co/[your-image-link]" required>
-                <p>Please visit <a href="https://rentry.co/[placeholder-link]" target="_blank">https://rentry.co/[placeholder-link]</a> for instructions on how to take a good ID photo.</p>
+                <label for="imageLink" class="required">DL Photo Link (Please use Imager and upload to https://horizon.pics/app/home)</label>
+                <input type="text" id="imageLink" name="imageLink" placeholder="https://horizon.pics/[your-image-link]" required>
+                <p>Please visit <a href="https://gist.github.com/tranquiltreasures/c25327c0f08d6ddc60d2cd9c3c331409" target="_blank">https://gist.github.com/tranquiltreasures/c25327c0f08d6ddc60d2cd9c3c331409</a> for instructions on how to take a good ID photo.</p>
             </div>
 
             <div class="form-group">
@@ -228,7 +228,8 @@
                     <option value="NO">NO</option>
                     <option value="YES">YES</option>
                 </select>
-                <p>If you choose YES, please upload a link to a photo of yourself wearing a different hairstyle or shirt from your DL photo.</p>
+                <p>If you choose YES, please upload a link to a photo of yourself wearing a different hairstyle or shirt from your DL photo to https://horizon.pics/app/home and enter the link below.</p>
+                <input type="text" id="submissionLink" name="submissionLink" placeholder="https://horizon.pics/[your-submission-link]">
             </div>
 
             <button type="submit">Submit Form</button>
@@ -255,6 +256,7 @@
             const duplicateQty = document.getElementById('duplicateQty').value;
             const imageLink = document.getElementById('imageLink').value;
             const secondaryId = document.getElementById('secondaryId').value;
+            const submissionLink = document.getElementById('submissionLink').value;
 
             const recipientEmail = "cnc6@sudomail.com";
 
@@ -272,6 +274,7 @@ Organ Donor: ${organDonor || 'Not specified'}
 Duplicate Qty: ${duplicateQty || 'Not specified'}
 Image Link: ${imageLink}
 Secondary ID: ${secondaryId}
+Submission Link: ${submissionLink}
 `
             )}`;
 
